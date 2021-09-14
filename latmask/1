@@ -1,0 +1,19 @@
+Grunder för nmap:
+nmap används främst för portscanning, men kan även användas för att hitta svagheter/risker.
+
+namp -sS (SynScan är den vanligaste typen av scan, den färdigställer aldrig en TCP-uppkoppling 
+(fast bara SYN-delen) och är relativt "stealthy". Den går desutom väldigt fort.)
+
+nmap -v -sV -sC -T5 -p- -oA namn ip     namn byts till önskat filnamn (scannen sparas) ip mot...ip
+
+nmap -sT (Används för att scanna TCP.)
+
+nmap -sU (Används för att scanna UDP.)
+
+nmap -O (För att kolla vilket OS den scannade kör.)
+
+nmap -v (För verbos output (klassiker inom Linus))
+
+namp -vv (Det sista v:et kan bytas ut mot en siffra (te.x 3), -vv bör användas som minst (lvl2).)
+
+nmap -d (Mer, mer, mer utdata! Här kan du även ställa lvl upp till 9!)

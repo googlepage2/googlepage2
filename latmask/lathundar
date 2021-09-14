@@ -1,0 +1,59 @@
+#!/usr/bin/python3
+
+print('Hej och välkommen till Lathunds-lathunden!')
+print('Här är listan på lathundar att välja: \n1. nmap-guide \n2. En hackares guide till shell')
+print('3. Privesc på Linux Easy-mode! \n4. Metaspolit Motherfucker!!\n5. SQL straight in my vains' )
+o=0
+while True:
+    try:
+        x=int(input('Ange med en siffra från listan vilken lathund du vill öppna: '))
+        if x == 1:
+            y=open(f'./{x}')
+            print()
+            print(y.read())
+            y.close()
+            break
+
+        if x == 2:
+            y=open(f'./{x}')
+            print()
+            print(y.read())
+            y.close()
+            break
+
+        if x == 3:
+            y=open(f'./{x}')
+            print()
+            print(y.read())
+            y.close()
+            break
+
+        if x == 4:
+            y=open(f'./{x}')
+            print()
+            print(y.read())
+            y.close()
+            break
+
+        if x == 5:
+            y=open(f'./{x}')
+            print()
+            print(y.read())
+            y.close()
+            break
+
+
+        if o == 10:
+            print('Du är inte så smart va?')
+            break
+
+        if x > 5 or x < 1:
+            print('Den siffran fanns inte med på listan...')
+            o=o+1
+
+    except:
+        o=o+1
+        print('Det där var ingen siffra...testa igen!')
+        if o == 10:
+            print('Du är inte så smart va?')
+            break

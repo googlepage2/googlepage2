@@ -1,0 +1,42 @@
+Lathund för att använda Metasploit, lär dig det!
+
+sudo msfdb init (Starta konsollen.)
+msfconsole (Starta Metasploit-konsollen.)
+db_status (Kolla så att databasen är ansluten.)
+help eller ? (Väl inne i konsollen, för att få hjälp med programmet.)
+search (För att söka efter moduler...kryptisk va?)
+use (För att använda/interagera med en modul.)
+info (För att få info om den laddade modulen, eller en annan modul.)
+connect (För att skapa en snabb anslutning för att kolla kommunikationen, typ ping.)
+banner (För att se lite kul ASCII-art.)
+set (För att sätta ett värde på en variabel. När du sätter IF-namn, använd namnet och itne IP.)
+setg (För att sätta ett värde på en Global variabel.)
+get (Används för att kolla variabelvärden på enskilda variabler.)
+unset (Ta bort värdet från en variabel.)
+spool (Skriv outputen till både skärmen och en fil.)
+save (Spara ditt pågående arbete med inställningar.)
+load (För att ladda tillgängliga moduler, även de som inte är standard.)
+use *exploateringsyta* (För att exploita en befintlig path?)
+
+
+nmap i Metasploit:
+db_nmap *syntax* (För att köra nmap inne i Metasploit.)
+hosts (Visar vilka hosts som hittades i sökningen.)
+services (För att visa vilka services som körs.)
+vulns (Används för att se vilka vulnerabilites det finns!!)
+
+
+Väl inne i maskinen:
+ps (För att kolla processer. Här får vi upp PID, PPID m.m.)
+migrate *PID* (Flytta sig in i en process med angivet PID.)
+getuid  (Se vilken användare som servern kör som.)
+run post/multi/recon/local_exploit_suggester  (För att hitta vulns.)
+
+Standard-moduler:
+Exploit - Modulen för expolits
+Payload - För att kunna skicka bitar med källkod för att executa exploiten
+Auxiliary - Används för att scanna och verifiera maskiners exploitability
+Post - För att loota och pivota efter exploateringen
+Encoder - Denna modulen har man för att gömma eploiten så att man kan undvika upptäckt.
+NOP - För buffer overflow-attacker och ROP
+

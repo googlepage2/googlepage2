@@ -1,0 +1,32 @@
+Det bästa sättet är helt klart att klicka på länken...för mig ;)
+https://book.hacktricks.xyz/linux-unix/privilege-escalation
+
+
+Men nedan följer lite vanliga exempel:
+
+(cat /proc/version || uname -a ) 2>/dev/null (Steg 1 för att kolla OS.)
+lsb_release -a 2>/dev/null (Steg 2 för att kolla OS.)
+
+echo $PATH (Här kan du kolla vilka delar i Path du får skriva i. Detta kan vara användbart!)
+
+(env || set) 2>/dev/null (Allmän info usern.)
+
+(Kommande 3 kommando kollar Kernel-version, det kanske finns kända exploits på den.)
+cat /proc/version
+uname -a
+searchsploit "Linux Kernel"
+Kolla sen länkarna för vanliga exploits:
+https://github.com/lucyoa/kernel-exploits 
+https://github.com/bwbwbwbw/linux-exploit-binaries
+https://github.com/Kabot/Unix-Privilege-Escalation-Exploits-Pack
+
+Du kan även få ut en lista på känsliga Kernels genom följande kommando:
+curl https://raw.githubusercontent.com/lucyoa/kernel-exploits/master/README.md 2>/dev/null | grep "Kernels: " | cut -d ":" -f 2 | cut -d "<" -f 1 | tr -d "," | tr ' ' '\n' | grep -v "^\d\.\d$" | sort -u -r | tr '\n' ' '
+
+Det finns även känsliga Sudoversioner, för att få fram dom skriv:
+searchsploit sudo
+
+När du fått fram dessa så kan du kolla om Sudon på datorn är känslig genom:
+sudo -V | grep "Sudo ver" | grep "1\.[01234567]\.[0-9]\+\|1\.8\.1[0-9]\*\|1\.8\.2[01234567]"
+
+

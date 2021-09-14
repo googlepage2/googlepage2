@@ -1,0 +1,46 @@
+Denna lista är bara övergripande. Den bryter ner de första och enklaste punkterna för att ta sig in
+i en dator och därifrån kunna privesca. Det finns oääändligt mycket mer att kunna!
+
+Hitta svagheter:
+Kör kommandot 'zaproxy'. Här kan du välja den blåa blixten och skriva in sidan du vill testa attackera.
+Kör 'Attack' och se vilka såbarheter som dyker upp.
+
+Få shell via Burp och "Command injection":
+1. Kör zaproxy för att hitta svaghet
+2. Fånga ett paket när du går in på hemsidan och gå sen in på Repeater.
+3. Där inne så nyttjar du den svagheten som har hittats (förutsatt att det är en commandinjection)
+4. Hämta en "oneliner" från lineplease. Här måste du testa dig fram vilken oneliner som fungerar.
+5. Gör en oneliner via programmet och kopiera in på rätt ställe vid GET, konvertera sen till URL-text.
+6. Starta listenern från lineplease och gör en "Send" i Burp. Kolla om du får shell, annars upprepa!
+
+
+Reverse shell: 
+Se skolhack/10.0.0.93/kjell.php
+
+
+Om du fått en Linux:
+
+sudo -l		Kolla vilka sudorättigheter som  finns
+/etc/passwd	Kolla vilka användare som finns
+find / -perm -4000 2>/dev/null	Kolla vilka filer som har SUID aktiverat -> Googla vilka privescs
+https://gtfobins.github.io/ Här hittar du oneliners för t.ex. privsec om du har SUID
+ps -eaf --forest Kolla processerna och vilka underprocesser det finns som kanske blivit root t.ex.
+Kolla om du hittar en privat nyckel
+Inspektera hemkataloger efter användbara grejer
+
+chmod +s /bin/bash Om du har command execution (som root) och vill ge dig själv root-rättigheter 
+(t.ex. om du ska köra commands på en anna dator.)(Dubbelkolla ls -la /bin/bash så att s är satt.
+
+
+Ordlista:
+privesc: Möjligheten att höja sina priveleges genom att flytta "uppåt" i användarrangen
+proxy: En funktion som lägger sig mellan dig och t.ex. en hemsida du vill besöka för att fånga trafik
+spoofa: Fejka t.ex. ursprungsplats/IP osv.
+shell: T.ex. ett terminalfönster, där du kan skriva in kommandon
+oneliners: Funktionen att t.ex. få shell genom att skicka en line av en speciell syntax
+
+Bra att ha:
+robots.txt
+I FTP (om du inte kan skriva kommando) testa passive
+cat /dev/urandom > /dev/pts/1 (Bara för att jävlas.)
+sha512sum *filnamn* sha512 kan bytas ut mot andra hasningar, t.ex. md5 sha256 för att göra en önskad hash på en önskad fil.
